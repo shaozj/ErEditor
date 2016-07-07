@@ -16,3 +16,51 @@ html {
   background: url(../images/moon.jpg) no-repeat top center;
   background-size: cover;
 }
+button {
+  margin: 0 5px;
+  border: none;
+  border-radius: 2px;
+  padding: 4px 23px;
+  color: white;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+  line-height: normal;
+}
+button.blue {
+  background: #3f9af9;
+}
+button.blue:hover {
+  background: #2786e8;
+}
+button.cyan {
+  background: #5db4cf;
+}
+button.cyan:hover {
+  background: #429dba;
+}
+button.openbutton {
+  position: relative;
+}
+.actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  line-height: 37px;
+  height: 37px;
+  padding: 0 5px;
+  text-align: center;
+}
+.codebox {
+  position: absolute;
+  top: 57px;
+  bottom: 10px;
+  left: 50%;
+  width: 70%;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  border: 1px solid white;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: rgba(39, 40, 34, 0.8);
+}
