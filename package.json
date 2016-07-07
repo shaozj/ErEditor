@@ -1,0 +1,37 @@
+{
+  "name": "er-editor",
+  "version": "1.0.0",
+  "description": "an editor based on electron and react",
+  "main": "main.js",
+  "scripts": {
+    "start": "tnpm install && gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaozj/ErEditor.git"
+  },
+  "keywords": [
+    "editor",
+    "electron",
+    "react"
+  ],
+  "author": "shaozj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaozj/ErEditor/issues"
+  },
+  "homepage": "https://github.com/shaozj/ErEditor#readme",
+  "devDependencies": {
+    "babel-core": "^5.4.7",
+    "electron-prebuilt": "^0.33.7",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-less": "^3.0.3",
+    "gulp-livereload": "^3.8.1",
+    "gulp-run": "^1.6.11",
+    "react": "^0.14",
+    "react-dom": "^0.14.0",
+    "codemirror": "^5.8.0"
+  }
+}
