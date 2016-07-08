@@ -23,9 +23,11 @@ class Editor extends React.Component {
                 <label><input type="file" accept=".js" onChange={this.onFile.bind(this)} /></label>
                 打开
               </button>
-              <button className="blue">保存</button>
+              <button className="blue" onClick={() => {
+                this.refs.codebox.save();
+              }}>保存</button>
             </div>
-            <CodeBox file={this.state.file} />
+            <CodeBox file={this.state.file} ref="codebox" />
           </div>
   }
 }

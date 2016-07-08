@@ -39,6 +39,15 @@ class CodeBox extends React.Component {
     this.doc.setValue(fs.readFileSync(this.file, { encoding: 'utf-8' }));
   }
 
+  save() {
+    if (!this.file) {
+      return;
+    }
+    fs.writeFileSync(this.file, this.doc.getValue(), 'utf8');
+
+    alert('保存成功');
+  }
+
   render() {
     return React.createElement('div', { className: 'codebox' });
   }

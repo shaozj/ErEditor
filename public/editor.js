@@ -37,11 +37,13 @@ class Editor extends React.Component {
         ),
         React.createElement(
           'button',
-          { className: 'blue' },
+          { className: 'blue', onClick: () => {
+              this.refs.codebox.save();
+            } },
           '保存'
         )
       ),
-      React.createElement(CodeBox, { file: this.state.file })
+      React.createElement(CodeBox, { file: this.state.file, ref: 'codebox' })
     );
   }
 }
