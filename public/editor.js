@@ -5,9 +5,21 @@ const ReactDOM = require('react-dom');
 const CodeBox = require('./codebox');
 
 class Editor extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      files: null
+    };
+  }
+
+  onFile(e) {
+    this.setState({ file: e.target.files[0].path });
+  }
+
   render() {
-    return;
-    React.createElement(
+    return React.createElement(
       'div',
       { className: 'editor' },
       React.createElement(
@@ -16,6 +28,11 @@ class Editor extends React.Component {
         React.createElement(
           'button',
           { className: 'cyan openbutton' },
+          React.createElement(
+            'label',
+            null,
+            React.createElement('input', { type: 'file', accept: '.js', onChange: this.onFile.bind(this) })
+          ),
           '打开'
         ),
         React.createElement(
@@ -24,7 +41,7 @@ class Editor extends React.Component {
           '保存'
         )
       ),
-      React.createElement(CodeBox, null)
+      React.createElement(CodeBox, { file: this.state.file })
     );
   }
 }

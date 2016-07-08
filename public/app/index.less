@@ -1,3 +1,6 @@
+@import "../../node_modules/codemirror/lib/codemirror.css";
+@import "../../node_modules/codemirror/theme/monokai.css";
+
 body,html,#body {
     position: absolute;
     left: 0;
@@ -44,6 +47,24 @@ button {
 
 	&.openbutton {
 		position: relative;
+
+		label {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+			cursor: pointer;
+			background: #fff;
+			overflow: hidden;
+			opacity: 0;
+			
+			input {
+				position: absolute;
+				clip: rect(1px 1px 1px 1px);
+			}
+		}
 	}
 }
 
@@ -58,16 +79,27 @@ button {
 }
 
 .codebox {
-	position: absolute;
-	top: 57px;
-	bottom: 10px;
-	left: 50%;
-	width: 70%;
-	margin: 0 auto;
-	transform: translateX(-50%);
-	border: 1px solid white;
-	border-radius: 5px;
-	overflow: hidden;
-	background-color: rgba(39, 40, 34, .8);
+    position: absolute;
+    top:57px;
+    bottom: 10px;
+    left:50%;
+    width: 70%;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    border: 1px solid white;
+    border-radius: 5px;
+    overflow: hidden;
+
+    // background-color: rgba(39, 40, 34, .8);
+
+    .CodeMirror {
+        height: 100%;
+    }
+    .cm-s-monokai.CodeMirror {
+        background-color: rgba(39, 40, 34, .8);
+    }
+    .cm-s-monokai .CodeMirror-gutters {
+        background-color: rgba(39, 40, 34, .7);
+    }
 }
 

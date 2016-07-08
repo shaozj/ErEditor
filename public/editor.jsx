@@ -3,15 +3,30 @@ const ReactDOM = require('react-dom');
 const CodeBox = require('./codebox');
 
 class Editor extends React.Component {
+
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      files: null
+    };
+  }
+
+  onFile(e) {
+    this.setState({file: e.target.files[0].path});
+  }
+
   render() {
-    return 
-      <div className="editor">
-        <div className="actions">
-          <button className="cyan openbutton">打开</button>
-          <button className="blue">保存</button>
-        </div>
-        <CodeBox />
-      </div>
+    return <div className="editor">
+            <div className="actions">
+              <button className="cyan openbutton">
+                <label><input type="file" accept=".js" onChange={this.onFile.bind(this)} /></label>
+                打开
+              </button>
+              <button className="blue">保存</button>
+            </div>
+            <CodeBox file={this.state.file} />
+          </div>
   }
 }
 
