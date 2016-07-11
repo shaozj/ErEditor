@@ -3,5 +3,10 @@ const ReactDOM = require('react-dom');
 const Editor = require('../editor');
 
 ReactDOM.render((
-  <Editor />
+  <div>
+    <Editor />
+    <webview id="html5" nodeintegration>
+      <Editor />
+    </webview>
+  </div>
 ), document.getElementById('body'));
