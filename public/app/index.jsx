@@ -5,8 +5,9 @@ const Editor = require('../editor');
 ReactDOM.render((
   <div>
     <Editor />
-    <webview id="html5" nodeintegration>
-      <Editor />
-    </webview>
+    <div id="preview">
+        <webview id="html5" nodeintegration></webview>
+        <Editor />
+    </div>
   </div>
 ), document.getElementById('body'));

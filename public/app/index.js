@@ -9,8 +9,9 @@ ReactDOM.render(React.createElement(
   null,
   React.createElement(Editor, null),
   React.createElement(
-    'webview',
-    { id: 'html5', nodeintegration: true },
+    'div',
+    { id: 'preview' },
+    React.createElement('webview', { id: 'html5', nodeintegration: true }),
     React.createElement(Editor, null)
   )
 ), document.getElementById('body'));
