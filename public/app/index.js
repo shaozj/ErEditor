@@ -2,16 +2,11 @@
 
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Editor = require('../editor');
+const PlayGround = require('../playground');
+const CodeBox = require('../codebox');
 
 ReactDOM.render(React.createElement(
   'div',
-  null,
-  React.createElement(Editor, null),
-  React.createElement(
-    'div',
-    { id: 'preview' },
-    React.createElement('webview', { id: 'html5', nodeintegration: true }),
-    React.createElement(Editor, null)
-  )
+  { id: 'wrap' },
+  React.createElement(PlayGround, null)
 ), document.getElementById('body'));

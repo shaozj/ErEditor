@@ -19,88 +19,135 @@ html {
     background-size: cover;
 }
 
-button {
-	margin: 0 5px;
-	border: none;
-	border-radius: 2px;
-	padding: 4px 23px;
-	color: white;
-	font-size: 12px;
-	outline: none;
-	cursor: pointer;
-	line-height: normal;
+body {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
 
-	&.blue {
-		background: #3f9af9;
+#wrap {
 
-		&:hover {
-			background: #2786e8;
-		}
-	}
+	.play-ground {
+		display: flex;
 
-	&.cyan {
-		background: #5db4cf;
-
-		&:hover {
-			background: #429dba;
-		}
-	}
-
-	&.openbutton {
-		position: relative;
-
-		label {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			display: inline-block;
+		button {
+			margin: 0 5px;
+			border: none;
+			border-radius: 2px;
+			padding: 4px 23px;
+			color: white;
+			font-size: 12px;
+			outline: none;
 			cursor: pointer;
-			background: #fff;
-			overflow: hidden;
-			opacity: 0;
-			
-			input {
-				position: absolute;
-				clip: rect(1px 1px 1px 1px);
+			line-height: normal;
+
+			&.blue {
+				background: #3f9af9;
+
+				&:hover {
+					background: #2786e8;
+				}
+			}
+
+			&.cyan {
+				background: #5db4cf;
+
+				&:hover {
+					background: #429dba;
+				}
+			}
+
+			&.openbutton {
+				position: relative;
+
+				label {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					display: inline-block;
+					cursor: pointer;
+					background: #fff;
+					overflow: hidden;
+					opacity: 0;
+					
+					input {
+						position: absolute;
+						clip: rect(1px 1px 1px 1px);
+					}
+				}
 			}
 		}
-	}
+
+		.actions {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			line-height: 37px;
+			height: 37px;
+			padding: 0 5px;
+			text-align: center;
+		}
+
+		.editor {
+			margin-top: 50px;
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+			padding: 10px;
+			width: 45%;
+	    	height: 650px
+		}
+
+		.codebox {
+			width: 100%;
+			height: 100%;
+		    flex: 1;
+		    overflow: scroll;
+		    box-sizing: border-box;    
+		    border: 1px solid white;
+		    border-radius: 5px;
+
+		    .CodeMirror {
+		        height: 100%;
+		        font-size: 14px;
+		    	font-family: "San Francisco", monospace, Menlo, Monaco, Consolas, "Courier New";
+		    }
+		    .cm-s-monokai.CodeMirror {
+		        background-color: rgba(39, 40, 34, .8);
+		    }
+		    .cm-s-monokai .CodeMirror-gutters {
+		        background-color: rgba(39, 40, 34, .7);
+		    }
+		}
+
+		#preview {
+		    margin-top: 50px;
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+			padding: 10px;
+			width: 45%;
+	    	height: 650px
+		}
+
+		#html5::after {
+		    display: block;
+		    content: '';
+		    position: absolute;
+		    width: 40px;
+		    height: 40px;
+		    border-radius: 50%;
+		    left: 50%;
+		    bottom: -52px;
+		    margin-left: -20px;
+		    background-color: #EFEFEF;
+		    border: 1px solid #CFCFCF;
+		}
+	}	
 }
 
-.actions {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	line-height: 37px;
-	height: 37px;
-	padding: 0 5px;
-	text-align: center;
-}
 
-.codebox {
-    position: absolute;
-    top:57px;
-    bottom: 10px;
-    left:50%;
-    width: 70%;
-    margin: 0 auto;
-    transform: translateX(-50%);
-    border: 1px solid white;
-    border-radius: 5px;
-    overflow: hidden;
-
-    // background-color: rgba(39, 40, 34, .8);
-
-    .CodeMirror {
-        height: 100%;
-    }
-    .cm-s-monokai.CodeMirror {
-        background-color: rgba(39, 40, 34, .8);
-    }
-    .cm-s-monokai .CodeMirror-gutters {
-        background-color: rgba(39, 40, 34, .7);
-    }
-}
 

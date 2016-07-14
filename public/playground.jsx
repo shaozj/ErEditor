@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const CodeBox = require('./codebox');
 
-class Editor extends React.Component {
+class PlayGround extends React.Component {
 
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ class Editor extends React.Component {
   }
 
   render() {
-    return <div className="editor">
+    return <div className="play-ground">
             <div className="actions">
               <button className="cyan openbutton">
                 <label><input type="file" accept=".js" onChange={this.onFile.bind(this)} /></label>
@@ -27,9 +27,14 @@ class Editor extends React.Component {
                 this.refs.codebox.save();
               }}>保存</button>
             </div>
-            <CodeBox file={this.state.file} ref="codebox" />
+            <div className="editor">
+              <CodeBox file={this.state.file} ref="codebox" />
+            </div>
+            <div id="preview">
+              <CodeBox id="html5" ref="codebox2" />
+            </div>
           </div>
   }
 }
 
-module.exports = Editor;
+module.exports = PlayGround;

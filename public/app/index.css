@@ -18,7 +18,16 @@ html {
   background: url(../images/moon.jpg) no-repeat top center;
   background-size: cover;
 }
-button {
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+#wrap .play-ground {
+  display: flex;
+}
+#wrap .play-ground button {
   margin: 0 5px;
   border: none;
   border-radius: 2px;
@@ -29,22 +38,22 @@ button {
   cursor: pointer;
   line-height: normal;
 }
-button.blue {
+#wrap .play-ground button.blue {
   background: #3f9af9;
 }
-button.blue:hover {
+#wrap .play-ground button.blue:hover {
   background: #2786e8;
 }
-button.cyan {
+#wrap .play-ground button.cyan {
   background: #5db4cf;
 }
-button.cyan:hover {
+#wrap .play-ground button.cyan:hover {
   background: #429dba;
 }
-button.openbutton {
+#wrap .play-ground button.openbutton {
   position: relative;
 }
-button.openbutton label {
+#wrap .play-ground button.openbutton label {
   position: absolute;
   top: 0;
   left: 0;
@@ -56,11 +65,11 @@ button.openbutton label {
   overflow: hidden;
   opacity: 0;
 }
-button.openbutton label input {
+#wrap .play-ground button.openbutton label input {
   position: absolute;
   clip: rect(1px 1px 1px 1px);
 }
-.actions {
+#wrap .play-ground .actions {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -69,24 +78,54 @@ button.openbutton label input {
   padding: 0 5px;
   text-align: center;
 }
-.codebox {
-  position: absolute;
-  top: 57px;
-  bottom: 10px;
-  left: 50%;
-  width: 70%;
-  margin: 0 auto;
-  transform: translateX(-50%);
+#wrap .play-ground .editor {
+  margin-top: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 45%;
+  height: 650px;
+}
+#wrap .play-ground .codebox {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  overflow: scroll;
+  box-sizing: border-box;
   border: 1px solid white;
   border-radius: 5px;
-  overflow: hidden;
 }
-.codebox .CodeMirror {
+#wrap .play-ground .codebox .CodeMirror {
   height: 100%;
+  font-size: 14px;
+  font-family: "San Francisco", monospace, Menlo, Monaco, Consolas, "Courier New";
 }
-.codebox .cm-s-monokai.CodeMirror {
+#wrap .play-ground .codebox .cm-s-monokai.CodeMirror {
   background-color: rgba(39, 40, 34, 0.8);
 }
-.codebox .cm-s-monokai .CodeMirror-gutters {
+#wrap .play-ground .codebox .cm-s-monokai .CodeMirror-gutters {
   background-color: rgba(39, 40, 34, 0.7);
+}
+#wrap .play-ground #preview {
+  margin-top: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 45%;
+  height: 650px;
+}
+#wrap .play-ground #html5::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  left: 50%;
+  bottom: -52px;
+  margin-left: -20px;
+  background-color: #EFEFEF;
+  border: 1px solid #CFCFCF;
 }

@@ -4,7 +4,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const CodeBox = require('./codebox');
 
-class Editor extends React.Component {
+class PlayGround extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ class Editor extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { className: 'editor' },
+      { className: 'play-ground' },
       React.createElement(
         'div',
         { className: 'actions' },
@@ -43,9 +43,18 @@ class Editor extends React.Component {
           '保存'
         )
       ),
-      React.createElement(CodeBox, { file: this.state.file, ref: 'codebox' })
+      React.createElement(
+        'div',
+        { className: 'editor' },
+        React.createElement(CodeBox, { file: this.state.file, ref: 'codebox' })
+      ),
+      React.createElement(
+        'div',
+        { id: 'preview' },
+        React.createElement(CodeBox, { id: 'html5', ref: 'codebox2' })
+      )
     );
   }
 }
 
-module.exports = Editor;
+module.exports = PlayGround;
