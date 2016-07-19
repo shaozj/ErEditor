@@ -16,6 +16,15 @@ class PlayGround extends React.Component {
     this.setState({file: e.target.files[0].path});
   }
 
+  /**
+  * 翻译 es6 到 es5
+  */
+  translate () {
+    // todo: translate es6 to es5
+    //alert('正在将es6翻译为es5');
+    console.log(this.state.file);
+  }
+
   render() {
     return <div className="play-ground">
             <div className="actions">
@@ -26,6 +35,9 @@ class PlayGround extends React.Component {
               <button className="blue" onClick={() => {
                 this.refs.codebox.save();
               }}>保存</button>
+              <button className="translate" onClick={() => {
+                this.translate();
+              }}>翻译</button> 
             </div>
             <div className="editor">
               <CodeBox file={this.state.file} ref="codebox" />

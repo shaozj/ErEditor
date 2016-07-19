@@ -18,6 +18,15 @@ class PlayGround extends React.Component {
     this.setState({ file: e.target.files[0].path });
   }
 
+  /**
+  * 翻译 es6 到 es5
+  */
+  translate() {
+    // todo: translate es6 to es5
+    //alert('正在将es6翻译为es5');
+    console.log(this.state.file);
+  }
+
   render() {
     return React.createElement(
       'div',
@@ -41,6 +50,13 @@ class PlayGround extends React.Component {
               this.refs.codebox.save();
             } },
           '保存'
+        ),
+        React.createElement(
+          'button',
+          { className: 'translate', onClick: () => {
+              this.translate();
+            } },
+          '翻译'
         )
       ),
       React.createElement(
