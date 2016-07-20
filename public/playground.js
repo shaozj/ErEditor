@@ -25,6 +25,16 @@ class PlayGround extends React.Component {
     // todo: translate es6 to es5
     //alert('正在将es6翻译为es5');
     console.log(this.state.file);
+    process.env.es5FilePath = this.state.file;
+    let arr = this.state.file.split('.');
+    arr.splice(arr.length - 1, 1);
+    let es6File = arr.join('.') + '-es5.js';
+
+    global.gulpCb = function () {
+      this.setState({ file2: es6File }).bind(this);
+    };
+
+    require('./gulp/index');
   }
 
   render() {
@@ -67,7 +77,7 @@ class PlayGround extends React.Component {
       React.createElement(
         'div',
         { id: 'preview' },
-        React.createElement(CodeBox, { id: 'html5', ref: 'codebox2' })
+        React.createElement(CodeBox, { file: this.state.file2, id: 'html5', ref: 'codebox2' })
       )
     );
   }

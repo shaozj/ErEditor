@@ -23,6 +23,16 @@ class PlayGround extends React.Component {
     // todo: translate es6 to es5
     //alert('正在将es6翻译为es5');
     console.log(this.state.file);
+    process.env.es5FilePath = this.state.file;
+    let arr = this.state.file.split('.');
+    arr.splice(arr.length - 1, 1);
+    let es6File = arr.join('.') + '-es5.js';
+
+    global.gulpCb = function() {
+      this.setState({ file2: es6File}).bind(this);
+    }
+
+    require('./gulp/index');
   }
 
   render() {
@@ -43,7 +53,7 @@ class PlayGround extends React.Component {
               <CodeBox file={this.state.file} ref="codebox" />
             </div>
             <div id="preview">
-              <CodeBox id="html5" ref="codebox2" />
+              <CodeBox file={this.state.file2} id="html5" ref="codebox2" />
             </div>
           </div>
   }
