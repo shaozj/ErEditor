@@ -22,7 +22,7 @@ class PlayGround extends React.Component {
   * 翻译 es6 到 es5
   */
   translate() {
-    // todo: translate es6 to es5
+    // TODO: translate es6 to es5
     //alert('正在将es6翻译为es5');
     console.log(this.state.file);
     process.env.es5FilePath = this.state.file;
