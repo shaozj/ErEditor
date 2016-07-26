@@ -3,7 +3,6 @@ const ReactDOM = require('react-dom');
 const CodeBox = require('./codebox');
 const babel = require('babel-core');
 const fs = require('fs');
-require('shelljs/global');
 
 class PlayGround extends React.Component {
 
@@ -31,16 +30,21 @@ class PlayGround extends React.Component {
     arr.splice(arr.length - 1, 1);
     let es5File = arr.join('.') + '-es5.js';
 
+    // get es6 code
+    let es6code = this.refs.codebox.doc.getValue();
+
+    console.log('======es6 code======== '+ es6code);
+
     // es6 to es5
     let options = {presets: ['es2015']};
-    let es5code = babel.transformFileSync(es6FilePath, options).code;
+    let es5code = babel.transform(es6code, options).code;
     console.log('==========es5 code: ==== ' + es5code);
 
-    // write to file
-    fs.writeFileSync(es5File, es5code);
+    // write to codebox2
+    this.refs.codebox2.setValue(es5code);
 
-    // refresh file2
-    this.setState({ file2: es5File});
+    // write to file
+    fs.writeFile(es5File, es5code);
   }
 
   render() {

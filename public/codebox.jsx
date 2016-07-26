@@ -37,6 +37,10 @@ class CodeBox extends React.Component {
     this.doc.setValue(fs.readFileSync(this.file, {encoding: 'utf-8'}));
   }
 
+  setValue(str) {
+    this.doc.setValue(str);
+  }
+
   save() {
     if (!this.file) {
       return;
