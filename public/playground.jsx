@@ -25,11 +25,14 @@ class PlayGround extends React.Component {
     // TODO: translate es6 to es5
     //alert('正在将es6翻译为es5');
     console.log(this.state.file);
+    let es5File = 'test-es5.js';
     let es6FilePath = this.state.file;
-    let arr = this.state.file.split('.');
-    arr.splice(arr.length - 1, 1);
-    let es5File = arr.join('.') + '-es5.js';
-
+    if (es6FilePath) {
+      let arr = es6FilePath && es6FilePath.split('.');
+      arr.splice(arr.length - 1, 1);
+      es5File = arr.join('.') + '-es5.js';
+    }
+    
     // get es6 code
     let es6code = this.refs.codebox.doc.getValue();
 
@@ -38,7 +41,8 @@ class PlayGround extends React.Component {
     // es6 to es5
     let options = {presets: ['es2015']};
     let es5code = babel.transform(es6code, options).code;
-    console.log('==========es5 code: ==== ' + es5code);
+    console.log('=======================')
+    console.log(eval(es5code));
 
     // write to codebox2
     this.refs.codebox2.setValue(es5code);

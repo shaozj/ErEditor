@@ -17,6 +17,7 @@ class CodeBox extends React.Component {
     this.doc = CodeMirror(code, {
       value: '// open a javascript file...',
       lineNumbers: true,
+      tabSize: 2,
       styleActiveLine: true,
       matchBrackets: true,
       mode: 'javascript',
